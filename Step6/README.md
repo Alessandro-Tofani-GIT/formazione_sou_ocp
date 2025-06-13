@@ -32,6 +32,17 @@ Questa repository contiene due semplici applicazioni Python per interagire con A
 
 ---
 
+## Monitoraggio del topic
+
+Per visualizzare informazioni dettagliate sul topic `foobar`, puoi eseguire il comando:
+
+```bash
+bin/kafka-topics.sh --bootstrap-server localhost:9092 --describe --topic foobar
+
+```
+
+---
+
 ## Risorse utili
 
 - [Apache Kafka Documentation](https://kafka.apache.org/documentation/)
