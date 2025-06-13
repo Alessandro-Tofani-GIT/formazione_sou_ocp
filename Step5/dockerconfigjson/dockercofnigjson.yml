@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: my-registry-secret
+  namespace: default  # Cambia il namespace se serve
+type: kubernetes.io/dockerconfigjson
+data:
+  .dockerconfigjson: ewogICJhdXRocyI6IHsKICAgICJteS1yZWdpc3RyeS5leGFtcGxlOjUwMDAiOiB7CiAgICAgICJ1c2VybmFtZSI6ICJteXVzZXIiLAogICAgICAicGFzc3dvcmQiOiAiMTIzNCIsCiAgICB9CiAgfQp9Cg== 
+
