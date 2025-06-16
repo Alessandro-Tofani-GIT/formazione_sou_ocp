@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: web
+    region: EU
+    environment: dev
+    
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: web
+      region: EU
+      environment: dev
+  template:
+    metadata:
+      labels:
+        app: web
+        region: EU
+        environment: dev
+
+    spec:
+      containers:
+      - name: nginx
+        image: alessandrotofani/task4_test:50.0
+        ports:
+        - containerPort: 80
