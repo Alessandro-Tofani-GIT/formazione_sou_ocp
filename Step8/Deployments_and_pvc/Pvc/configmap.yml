@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: db-init-script
+data:
+  init.sql: |
+    CREATE TABLE items (
+      id SERIAL PRIMARY KEY,
+      name TEXT NOT NULL,
+      value INTEGER NOT NULL
+    );
+
+    INSERT INTO items (name, value) VALUES
+    ('Mela', 10),
+    ('Banana', 20),
+    ('Orange', 30);

@@ -1,0 +1,53 @@
+zzapiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db-deployment
+  labels:
+    app: database
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: database
+  template:
+    metadata:
+      labels:
+        app: database
+    spec:
+      containers:
+      - name: postgres
+        image: postgres:15
+        env:
+        - name: POSTGRES_USER
+          value: user
+        - name: POSTGRES_PASSWORD
+          value: password
+        - name: POSTGRES_DB
+          value: mydb
+        ports:
+        - containerPort: 5432
+        volumeMounts:
+        - name: data-volume
+          mountPath: /var/lib/postgresql/data
+
+      volumes:
+      - name: data-volume
+        persistentVolumeClaim: 
+          claimName: db-pvc
+      - name: init-script
+        configMap:
+          name: db-init-script
+
+    
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: db-service
+spec:
+  selector:
+    app: database
+  ports:
+  - protocol: TCP
+    port: 5432
+    targetPort: 5432
