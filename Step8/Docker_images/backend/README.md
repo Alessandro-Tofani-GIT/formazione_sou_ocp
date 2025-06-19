@@ -13,7 +13,8 @@ Fa parte di un sistema a microservizi su Kubernetes con:
 
 Il seguente Dockerfile cea l'immagine utilizzata all'interno del Deployment backend.
 
-## 2. Script Python backend.py
+## 2. Script Python `backend.py`
 
 Il backend si connette al database PostgreSQL utilizzando una variabile d'ambiente DATABASE_URL e restituisce i dati dalla tabella items.
+
 
