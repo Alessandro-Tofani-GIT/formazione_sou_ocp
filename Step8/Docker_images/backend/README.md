@@ -1,4 +1,4 @@
-# Backend Flask + PostgreSQL in Kubernetes
+# Backend Flask + PostgreSQL 
 
 ## Descrizione
 
