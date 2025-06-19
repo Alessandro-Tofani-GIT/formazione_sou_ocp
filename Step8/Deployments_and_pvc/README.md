@@ -1,4 +1,4 @@
-#  Kubernetes 3-Tier Application Deployment
+#  Kubernetes Application Deployment
 
 ##  Obiettivo
 
