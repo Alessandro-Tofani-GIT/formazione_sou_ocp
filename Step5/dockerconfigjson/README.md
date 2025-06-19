@@ -21,6 +21,7 @@ Configurazione JSON per autenticare l’accesso al registry:
     }
   }
 }
+```
 
 ## 2. Manifest per Docker Registry
 
