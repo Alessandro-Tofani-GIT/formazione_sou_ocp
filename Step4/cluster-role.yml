@@ -1,0 +1,30 @@
+# Dai i permessi a livello cluster
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: cadvisor-reader
+rules:
+- apiGroups: [""]
+  resources:
+    - nodes
+    - nodes/metrics
+    - nodes/proxy
+    - nodes/stats
+  verbs: ["get", "list", "watch"]
+
+---
+# Collega quei permessi al ServiceAccount "default" nel namespace "my-app-ns"
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: cadvisor-reader-binding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cadvisor-reader
+subjects:
+- kind: ServiceAccount
+  name: prometheus-server
+  namespace: monitoring
+
+  
